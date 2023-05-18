@@ -13,6 +13,11 @@
 		1CFAB1FD2A1109F500302D88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CFAB1FB2A1109F500302D88 /* Main.storyboard */; };
 		1CFAB1FF2A1109F600302D88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CFAB1FE2A1109F600302D88 /* Assets.xcassets */; };
 		1CFAB2022A1109F600302D88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CFAB2002A1109F600302D88 /* LaunchScreen.storyboard */; };
+		1CFAB20E2A11174900302D88 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAB20D2A11174900302D88 /* WeatherModel.swift */; };
+		1CFAB2102A11179500302D88 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAB20F2A11179500302D88 /* Service.swift */; };
+		1CFAB2122A11183000302D88 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAB2112A11183000302D88 /* ViewModel.swift */; };
+		1CFAB2152A11184F00302D88 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1CFAB2142A11184F00302D88 /* SnapKit */; };
+		1CFAB2172A1119C800302D88 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAB2162A1119C800302D88 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,10 @@
 		1CFAB1FE2A1109F600302D88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CFAB2012A1109F600302D88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1CFAB2032A1109F600302D88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CFAB20D2A11174900302D88 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		1CFAB20F2A11179500302D88 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		1CFAB2112A11183000302D88 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		1CFAB2162A1119C800302D88 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CFAB2152A11184F00302D88 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +66,51 @@
 		1CFAB1F42A1109F500302D88 /* Neobis_iOS_WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				1CFAB20C2A11158000302D88 /* Service */,
+				1CFAB20B2A110A1200302D88 /* ViewModels */,
+				1CFAB20A2A110A0D00302D88 /* Views */,
+				1CFAB2092A110A0700302D88 /* Models */,
 				1CFAB1F52A1109F500302D88 /* AppDelegate.swift */,
 				1CFAB1F72A1109F500302D88 /* SceneDelegate.swift */,
-				1CFAB1F92A1109F500302D88 /* ViewController.swift */,
 				1CFAB1FB2A1109F500302D88 /* Main.storyboard */,
 				1CFAB1FE2A1109F600302D88 /* Assets.xcassets */,
 				1CFAB2002A1109F600302D88 /* LaunchScreen.storyboard */,
 				1CFAB2032A1109F600302D88 /* Info.plist */,
 			);
 			path = Neobis_iOS_WeatherApp;
+			sourceTree = "<group>";
+		};
+		1CFAB2092A110A0700302D88 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1CFAB20D2A11174900302D88 /* WeatherModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1CFAB20A2A110A0D00302D88 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1CFAB1F92A1109F500302D88 /* ViewController.swift */,
+				1CFAB2162A1119C800302D88 /* MainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1CFAB20B2A110A1200302D88 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1CFAB2112A11183000302D88 /* ViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1CFAB20C2A11158000302D88 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1CFAB20F2A11179500302D88 /* Service.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +129,9 @@
 			dependencies = (
 			);
 			name = Neobis_iOS_WeatherApp;
+			packageProductDependencies = (
+				1CFAB2142A11184F00302D88 /* SnapKit */,
+			);
 			productName = Neobis_iOS_WeatherApp;
 			productReference = 1CFAB1F22A1109F500302D88 /* Neobis_iOS_WeatherApp.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +160,9 @@
 				Base,
 			);
 			mainGroup = 1CFAB1E92A1109F400302D88;
+			packageReferences = (
+				1CFAB2132A11184F00302D88 /* XCRemoteSwiftPackageReference "Snapkit" */,
+			);
 			productRefGroup = 1CFAB1F32A1109F500302D88 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,7 +191,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CFAB1FA2A1109F500302D88 /* ViewController.swift in Sources */,
+				1CFAB2172A1119C800302D88 /* MainView.swift in Sources */,
 				1CFAB1F62A1109F500302D88 /* AppDelegate.swift in Sources */,
+				1CFAB2102A11179500302D88 /* Service.swift in Sources */,
+				1CFAB20E2A11174900302D88 /* WeatherModel.swift in Sources */,
+				1CFAB2122A11183000302D88 /* ViewModel.swift in Sources */,
 				1CFAB1F82A1109F500302D88 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +414,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1CFAB2132A11184F00302D88 /* XCRemoteSwiftPackageReference "Snapkit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Snapkit/Snapkit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1CFAB2142A11184F00302D88 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1CFAB2132A11184F00302D88 /* XCRemoteSwiftPackageReference "Snapkit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1CFAB1EA2A1109F400302D88 /* Project object */;
 }
