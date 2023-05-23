@@ -9,9 +9,9 @@ import Foundation
 
 
 class WeatherService {
-    let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=London&appid=d082522b3afe9b359032ed4b0119d10a")
+    let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=London&appid=d082522b3afe9b359032ed4b0119d10a&units=metric")
     
-    func fetchWeather(completion: @escaping (Weather) -> ()) {
+    func fetchWeather(completion: @escaping (Welcome) -> ()) {
         
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if let error = error {
@@ -22,10 +22,10 @@ class WeatherService {
             guard let data = data else { return }
             
             do {
-                let weather = try JSONDecoder().decode(Weather.self, from: data)
+                let weather = try JSONDecoder().decode(Welcome  .self, from: data)
                 completion(weather)
-            } catch let jsonError {
-                print(jsonError)
+            } catch {
+                print("falied to convert \(error.localizedDescription)")
             }
         }.resume()
     }

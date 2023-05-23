@@ -8,15 +8,35 @@
 import Foundation
 import UIKit
 
-class WeatherViewModel {
+protocol WeatherViewModelType {
+    
+    var didTapSearch: (() -> ())? { get set }
+    
+    var updateSearch: ((Welcome) -> ())? { get set }
+    
+    var onDataReceived: ((Welcome) -> Void)? { get set }
+    
+    func fetchWeatherData()
+}
+
+class WeatherViewModel: WeatherViewModelType {
+    
     private var weatherService: WeatherService!
-    private(set) var weatherData : Weather! {
+    private(set) var weatherData : Welcome? {
         didSet {
             self.bindWeatherViewModelToController()
         }
     }
     
     var bindWeatherViewModelToController : (() -> ()) = {}
+    
+    var onDataReceived: ((Welcome) -> Void)?
+    
+    var updateSearch: ((Welcome) -> ())?
+    
+    lazy var didTapSearch: (() -> ())? = { [weak self] in
+//        self?.updateSearch?(self?.weatherData ?? Weather(main: Main(temp: 2.0)))
+    }
     
     init() {
         self.weatherService = WeatherService()
@@ -26,6 +46,7 @@ class WeatherViewModel {
     func fetchWeatherData() {
         weatherService.fetchWeather { (weatherData) in
             self.weatherData = weatherData
+            self.updateSearch?(weatherData)
         }
     }
 }
