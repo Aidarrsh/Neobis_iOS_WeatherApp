@@ -11,6 +11,7 @@ import SnapKit
 class ViewController: UIViewController {
     
     var weatherViewModel: WeatherViewModelType!
+    var weekWeatherViewModel: WeekViewModelType!
     let mainView = MainView()
     
     var weatherModel: Welcome? {
@@ -23,8 +24,23 @@ class ViewController: UIViewController {
         }
     }
     
+    var weekWeatherModel: weekWelcome? {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                if let viewController = self {
+                    viewController.updateWeekUI()
+                }
+            }
+        }
+    }
+    
     init(vm: WeatherViewModelType) {
         weatherViewModel = vm
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    init(vm: WeekViewModelType) {
+        weekWeatherViewModel = vm
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -38,6 +54,10 @@ class ViewController: UIViewController {
         weatherViewModel.updateSearch = { [weak self] weather in
             self?.weatherModel = weather
         }
+        
+//        weekWeatherViewModel.updateWeek = { [weak self] weekWeather in
+//            self?.weekWeatherModel = weekWeather
+//        }
         
         addMainView()
         mainView.searchButton.addTarget(self, action: #selector(searchTapped), for: .touchUpInside)
@@ -66,5 +86,9 @@ class ViewController: UIViewController {
         mainView.humidityStatusValue.text = "\(weatherModel.main.humidity)%"
         mainView.visibilityStatusValue.text = "\((weatherModel.visibility) / 1760) miles"
         mainView.pressureStatusValue.text = "\(weatherModel.main.pressure) mb"
+    }
+    
+    func updateWeekUI() {
+        
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C020AFA2A1D3F7700AC174A /* WeatherDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C020AF92A1D3F7700AC174A /* WeatherDayView.swift */; };
 		1C7DDF9F2A1CFBB5000A6EA8 /* Montserrat-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C7DDF8D2A1CFBB4000A6EA8 /* Montserrat-MediumItalic.ttf */; };
 		1C7DDFA02A1CFBB5000A6EA8 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C7DDF8E2A1CFBB4000A6EA8 /* Montserrat-Black.ttf */; };
 		1C7DDFA12A1CFBB5000A6EA8 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C7DDF8F2A1CFBB4000A6EA8 /* Montserrat-Light.ttf */; };
@@ -25,6 +26,7 @@
 		1C7DDFAE2A1CFBB5000A6EA8 /* Montserrat-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C7DDF9C2A1CFBB5000A6EA8 /* Montserrat-ExtraLightItalic.ttf */; };
 		1C7DDFAF2A1CFBB5000A6EA8 /* Montserrat-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C7DDF9D2A1CFBB5000A6EA8 /* Montserrat-BlackItalic.ttf */; };
 		1C7DDFB02A1CFBB5000A6EA8 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C7DDF9E2A1CFBB5000A6EA8 /* Montserrat-Bold.ttf */; };
+		1C7DDFB42A1D398E000A6EA8 /* WeekModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7DDFB32A1D398E000A6EA8 /* WeekModel.swift */; };
 		1CFAB1F62A1109F500302D88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAB1F52A1109F500302D88 /* AppDelegate.swift */; };
 		1CFAB1F82A1109F500302D88 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAB1F72A1109F500302D88 /* SceneDelegate.swift */; };
 		1CFAB1FA2A1109F500302D88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAB1F92A1109F500302D88 /* ViewController.swift */; };
@@ -38,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C020AF92A1D3F7700AC174A /* WeatherDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDayView.swift; sourceTree = "<group>"; };
 		1C7DDF8D2A1CFBB4000A6EA8 /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
 		1C7DDF8E2A1CFBB4000A6EA8 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
 		1C7DDF8F2A1CFBB4000A6EA8 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Light.ttf"; path = "../../../../../Downloads/Montserrat/static/Montserrat-Light.ttf"; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 		1C7DDF9C2A1CFBB5000A6EA8 /* Montserrat-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		1C7DDF9D2A1CFBB5000A6EA8 /* Montserrat-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BlackItalic.ttf"; sourceTree = "<group>"; };
 		1C7DDF9E2A1CFBB5000A6EA8 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		1C7DDFB32A1D398E000A6EA8 /* WeekModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekModel.swift; sourceTree = "<group>"; };
 		1CFAB1F22A1109F500302D88 /* Neobis_iOS_WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neobis_iOS_WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CFAB1F52A1109F500302D88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CFAB1F72A1109F500302D88 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				1CFAB20D2A11174900302D88 /* WeatherModel.swift */,
+				1C7DDFB32A1D398E000A6EA8 /* WeekModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 			children = (
 				1CFAB1F92A1109F500302D88 /* ViewController.swift */,
 				1CFAB2162A1119C800302D88 /* MainView.swift */,
+				1C020AF92A1D3F7700AC174A /* WeatherDayView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -269,10 +275,12 @@
 				1CFAB1FA2A1109F500302D88 /* ViewController.swift in Sources */,
 				1CFAB2172A1119C800302D88 /* MainView.swift in Sources */,
 				1CFAB1F62A1109F500302D88 /* AppDelegate.swift in Sources */,
+				1C020AFA2A1D3F7700AC174A /* WeatherDayView.swift in Sources */,
 				1CFAB2102A11179500302D88 /* Service.swift in Sources */,
 				1CFAB20E2A11174900302D88 /* WeatherModel.swift in Sources */,
 				1CFAB2122A11183000302D88 /* ViewModel.swift in Sources */,
 				1CFAB1F82A1109F500302D88 /* SceneDelegate.swift in Sources */,
+				1C7DDFB42A1D398E000A6EA8 /* WeekModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

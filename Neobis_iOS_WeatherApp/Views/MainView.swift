@@ -163,37 +163,52 @@ class MainView : UIView {
         return cLabel
     }()
     
-    let view1 : UIView = {
-        let view = UIView()
-        view.backgroundColor = .blue
+    let view1 : WeatherDayView = {
+        let view = WeatherDayView()
+        view.layer.cornerRadius = 20
+        view.layer.borderColor = UIColor(red: 212/255, green: 212/255, blue: 212/255, alpha: 1.0).cgColor
+        view.layer.borderWidth = 0.8
+        
         
         return view
     }()
     
-    let view2 : UIView = {
-        let view = UIView()
-        view.backgroundColor = .yellow
+    let view2 : WeatherDayView = {
+        let view = WeatherDayView()
+        view.layer.cornerRadius = 20
+        view.layer.borderColor = UIColor(red: 212/255, green: 212/255, blue: 212/255, alpha: 1.0).cgColor
+        view.layer.borderWidth = 0.8
+        
         
         return view
     }()
     
-    let view3 : UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
+    let view3 : WeatherDayView = {
+        let view = WeatherDayView()
+        view.layer.cornerRadius = 20
+        view.layer.borderColor = UIColor(red: 212/255, green: 212/255, blue: 212/255, alpha: 1.0).cgColor
+        view.layer.borderWidth = 0.8
+        
         
         return view
     }()
     
-    let view4 : UIView = {
-        let view = UIView()
-        view.backgroundColor = .green
+    let view4 : WeatherDayView = {
+        let view = WeatherDayView()
+        view.layer.cornerRadius = 20
+        view.layer.borderColor = UIColor(red: 212/255, green: 212/255, blue: 212/255, alpha: 1.0).cgColor
+        view.layer.borderWidth = 0.8
+        
         
         return view
     }()
     
-    let view5 : UIView = {
-        let view = UIView()
-        view.backgroundColor = .purple
+    let view5 : WeatherDayView = {
+        let view = WeatherDayView()
+        view.layer.cornerRadius = 20
+        view.layer.borderColor = UIColor(red: 212/255, green: 212/255, blue: 212/255, alpha: 1.0).cgColor
+        view.layer.borderWidth = 0.8
+        
         
         return view
     }()
@@ -206,6 +221,67 @@ class MainView : UIView {
         
         return stackView
     }()
+    
+    let day1Label : UILabel = {
+        let cLabel = UILabel()
+        let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date())
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        cLabel.text = dateFormatter.string(from: tomorrow!)
+        cLabel.textColor = .black
+        cLabel.font = UIFont(name: "Montserrat-Medium", size: 10)
+        
+        return cLabel
+    }()
+    
+    let day2Label : UILabel = {
+        let cLabel = UILabel()
+        let tomorrow = Calendar.current.date(byAdding: .day, value: 2, to: Date())
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        cLabel.text = dateFormatter.string(from: tomorrow!)
+        cLabel.textColor = .black
+        cLabel.font = UIFont(name: "Montserrat-Medium", size: 10)
+        
+        return cLabel
+    }()
+    
+    let day3Label : UILabel = {
+        let cLabel = UILabel()
+        let tomorrow = Calendar.current.date(byAdding: .day, value: 3, to: Date())
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        cLabel.text = dateFormatter.string(from: tomorrow!)
+        cLabel.textColor = .black
+        cLabel.font = UIFont(name: "Montserrat-Medium", size: 10)
+        
+        return cLabel
+    }()
+    
+    let day4Label : UILabel = {
+        let cLabel = UILabel()
+        let tomorrow = Calendar.current.date(byAdding: .day, value: 4, to: Date())
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        cLabel.text = dateFormatter.string(from: tomorrow!)
+        cLabel.textColor = .black
+        cLabel.font = UIFont(name: "Montserrat-Medium", size: 10)
+        
+        return cLabel
+    }()
+    
+    let day5Label : UILabel = {
+        let cLabel = UILabel()
+        let tomorrow = Calendar.current.date(byAdding: .day, value: 5, to: Date())
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        cLabel.text = dateFormatter.string(from: tomorrow!)
+        cLabel.textColor = .black
+        cLabel.font = UIFont(name: "Montserrat-Medium", size: 10)
+        
+        return cLabel
+    }()
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -246,7 +322,11 @@ class MainView : UIView {
         addSubview(weekLabel)
         addSubview(stackView)
         [view1, view2, view3, view4, view5].forEach { stackView.addArrangedSubview($0) }
-
+        addSubview(day1Label)
+        addSubview(day2Label)
+        addSubview(day3Label)
+        addSubview(day4Label)
+        addSubview(day5Label)
     }
     
     func setupConstraints(){
@@ -256,7 +336,7 @@ class MainView : UIView {
         }
         
         dateLabel.snp.makeConstraints{ make in
-            make.top.equalTo(searchButton).inset(30)
+            make.top.equalTo(searchButton).inset(10)
             make.centerX.equalToSuperview()
         }
         
@@ -339,7 +419,32 @@ class MainView : UIView {
             make.bottom.equalTo(weekView.snp.bottom).inset(100)
             make.leading.equalTo(weekView.snp.leading).inset(10)
             make.trailing.equalTo(weekView.snp.trailing).inset(10)
-            make.top.equalTo(weekLabel.snp.bottom).offset(15)
+            make.top.equalTo(weekLabel.snp.bottom).offset(40)
+        }
+        
+        day1Label.snp.makeConstraints{ make in
+            make.bottom.equalTo(view1.snp.top).offset(-5)
+            make.centerX.equalTo(view1.snp.centerX)
+        }
+        
+        day2Label.snp.makeConstraints{ make in
+            make.bottom.equalTo(view2.snp.top).offset(-5)
+            make.centerX.equalTo(view2.snp.centerX)
+        }
+        
+        day3Label.snp.makeConstraints{ make in
+            make.bottom.equalTo(view3.snp.top).offset(-5)
+            make.centerX.equalTo(view3.snp.centerX)
+        }
+        
+        day4Label.snp.makeConstraints{ make in
+            make.bottom.equalTo(view4.snp.top).offset(-5)
+            make.centerX.equalTo(view4.snp.centerX)
+        }
+        
+        day5Label.snp.makeConstraints{ make in
+            make.bottom.equalTo(view5.snp.top).offset(-5)
+            make.centerX.equalTo(view5.snp.centerX)
         }
     }
 }
