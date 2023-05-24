@@ -1,3 +1,5 @@
+import UIKit
+
 // MARK: - Welcome
 struct weekWelcome: Codable {
     let cod: String
@@ -100,6 +102,8 @@ enum weekMainEnum: String, Codable {
     case clouds = "Clouds"
     case rain = "Rain"
 }
+
+
 
 // MARK: - Wind
 struct weekWind: Codable {

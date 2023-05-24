@@ -9,18 +9,21 @@ import Foundation
 
 
 class WeatherService {
+    //let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=London&appid=d082522b3afe9b359032ed4b0119d10a&units=metric")
+    
     let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=London&appid=d082522b3afe9b359032ed4b0119d10a&units=metric")
     
-    let weekUrl = URL(string: "https://api.openweathermap.org/data/2.5/forecast?q=London&appid=d082522b3afe9b359032ed4b0119d10a&units=metric")
     
-    func fetchWeather(completion: @escaping (Welcome) -> ()) {
-        
-        URLSession.shared.dataTask(with: url!) { (data, response, error) in
+//    let weekUrl = URL(string: "https://api.openweathermap.org/data/2.5/forecast?q=London&appid=d082522b3afe9b359032ed4b0119d10a&units=metric")
+    
+    func fetchWeather(for cityName: String, completion: @escaping (Welcome) -> ()) {
+        let baseUrl = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&appid=d082522b3afe9b359032ed4b0119d10a&units=metric")
+//        print(cityName)
+        URLSession.shared.dataTask(with: baseUrl!) { (data, response, error) in
             if let error = error {
                 print("Data Task Error: \(error.localizedDescription)")
                 return
             }
-            
             guard let data = data else { return }
             
             do {
@@ -32,9 +35,9 @@ class WeatherService {
         }.resume()
     }
     
-    func fetchWeekWeather(completion: @escaping (weekWelcome) -> ()) {
-        
-        URLSession.shared.dataTask(with: weekUrl!) { (data, response, error) in
+    func fetchWeekWeather(for cityName: String, completion: @escaping (weekWelcome) -> ()) {
+        let baseWeekUrl = URL(string: "https://api.openweathermap.org/data/2.5/forecast?q=\(cityName)&appid=d082522b3afe9b359032ed4b0119d10a&units=metric")
+        URLSession.shared.dataTask(with: baseWeekUrl!) { (data, response, error) in
             if let error = error {
                 print("Data Task Error: \(error.localizedDescription)")
                 return

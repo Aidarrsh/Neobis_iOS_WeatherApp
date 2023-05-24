@@ -18,6 +18,12 @@ class WeatherDayView: UIView {
         return tempLabel
     }()
     
+    let weatherIcon : UIImageView = {
+        let image = UIImageView()
+        
+        return image
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -29,9 +35,18 @@ class WeatherDayView: UIView {
     
     private func setupView() {
         addSubview(tempLabel)
+        addSubview(weatherIcon)
+        
         tempLabel.snp.makeConstraints{ make in
             make.centerX.equalTo(snp.centerX)
             make.bottom.equalTo(snp.bottom).inset(10)
+        }
+        
+        weatherIcon.snp.makeConstraints{ make in
+            make.bottom.equalTo(tempLabel.snp.top).offset(-12)
+            make.centerX.equalTo(snp.centerX)
+            make.width.equalTo(26)
+            make.height.equalTo(26)
         }
     }
 }

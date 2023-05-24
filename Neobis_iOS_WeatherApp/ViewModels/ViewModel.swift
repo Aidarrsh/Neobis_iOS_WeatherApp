@@ -14,14 +14,7 @@ protocol WeatherViewModelType {
     
     var updateSearch: ((Welcome) -> ())? { get set }
     
-    func fetchWeatherData()
-}
-
-protocol WeekViewModelType {
-    
-    var updateWeek: ((weekWelcome) -> ())? { get set}
-    
-    func fetchWeekWeatherData()
+    func fetchWeatherData(for cityName: String)
 }
 
 class WeatherViewModel: WeatherViewModelType {
@@ -55,19 +48,19 @@ class WeatherViewModel: WeatherViewModelType {
     init() {
         self.weatherService = WeatherService()
         self.weekWeatherService = WeatherService()
-        fetchWeatherData()
-        fetchWeekWeatherData()
+        fetchWeatherData(for: "London")
+        fetchWeekWeatherData(for: "London")
     }
     
-    func fetchWeatherData() {
-        weatherService.fetchWeather { (weatherData) in
+    func fetchWeatherData(for cityName: String) {
+        weatherService.fetchWeather(for: cityName) { (weatherData) in
             self.weatherData = weatherData
             self.updateSearch?(weatherData)
         }
     }
     
-    func fetchWeekWeatherData() {
-        weekWeatherService.fetchWeekWeather{ (weekWeatherData) in
+    func fetchWeekWeatherData(for cityName: String) {
+        weekWeatherService.fetchWeekWeather(for : cityName) { (weekWeatherData) in
             self.weekWeatherData = weekWeatherData
             self.updateWeek?(weekWeatherData)
         }

@@ -65,11 +65,18 @@ class MainView : UIView {
         view.layer.masksToBounds = false
         return view
     }()
+    
+    let mainImage : UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "image 3-5")
+        
+        return image
+    }()
 
     let tempLabel : UILabel = {
         let cLabel = UILabel()
         cLabel.text = "10°C"
-        cLabel.font = UIFont(name: "Montserrat-Light", size: 95)
+        cLabel.font = UIFont(name: "Montserrat-Light", size: 90)
         
         return cLabel
     }()
@@ -317,6 +324,7 @@ class MainView : UIView {
         addSubview(cityLabel)
         addSubview(countryLabel)
         addSubview(infoView)
+        addSubview(mainImage)
         addSubview(tempLabel)
         addSubview(windStatus)
         addSubview(windStatusValue)
@@ -366,6 +374,13 @@ class MainView : UIView {
             make.width.equalTo(sizeInfoView)
         }
         infoView.layer.cornerRadius = CGFloat(sizeInfoView/2)
+        
+        mainImage.snp.makeConstraints{ make in
+            make.top.equalTo(infoView.snp.top).inset(15)
+            make.centerX.equalTo(infoView.snp.centerX)
+            make.height.equalTo(75)
+            make.width.equalTo(75)
+        }
         
         tempLabel.snp.makeConstraints{ make in
             make.centerX.equalTo(infoView.snp.centerX)

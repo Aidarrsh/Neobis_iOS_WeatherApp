@@ -8,6 +8,13 @@
 import Foundation
 import UIKit
 
+protocol WeekViewModelType {
+    
+    var updateWeek: ((weekWelcome) -> ())? { get set}
+    
+    func fetchWeekWeatherData(for cityName: String)
+}
+
 class WeekViewModel: WeekViewModelType {
     
     private var weekWeatherService: WeatherService!
@@ -23,11 +30,11 @@ class WeekViewModel: WeekViewModelType {
     
     init() {
         self.weekWeatherService = WeatherService()
-        fetchWeekWeatherData()
+        fetchWeekWeatherData(for: "London")
     }
     
-    func fetchWeekWeatherData() {
-        weekWeatherService.fetchWeekWeather{ (weekWeatherData) in
+    func fetchWeekWeatherData(for cityName: String) {
+        weekWeatherService.fetchWeekWeather(for : cityName) { (weekWeatherData) in
             self.weekWeatherData = weekWeatherData
             self.updateWeek?(weekWeatherData)
         }

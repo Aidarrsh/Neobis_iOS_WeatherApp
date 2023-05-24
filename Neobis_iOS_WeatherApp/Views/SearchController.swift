@@ -9,9 +9,13 @@ import Foundation
 import UIKit
 import SnapKit
 
-class SearchController : UIViewController {
+class SearchController : UIViewController, UITextFieldDelegate {
     
     var onSearch: ((String) -> Void)?
+    
+    var weatherViewModel: WeatherViewModelType = WeatherViewModel()
+    
+    var weekViewModel : WeekViewModelType = WeekViewModel()
     
     let gradientLayer = CAGradientLayer()
     
@@ -39,10 +43,13 @@ class SearchController : UIViewController {
         field.leftView = leftView
         field.leftViewMode = .always
         field.layer.cornerRadius = 20
+        field.returnKeyType = .search
 
         return field
     }()
-
+    
+    //let cityName = self.textField.text
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,19 +60,32 @@ class SearchController : UIViewController {
             UIColor(red: 0/255, green: 36/255, blue: 47/255, alpha: 1.0).cgColor
         ]
         view.layer.addSublayer(gradientLayer)
+        
         addToView()
         setupConstraints()
+        textField.delegate = self
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+
+        if let cityName = textField.text {
+            weatherViewModel.fetchWeatherData(for: cityName)
+            weekViewModel.fetchWeekWeatherData(for: cityName)
+                  
+            onSearch?(cityName)
+        } else {
+            print("No city name found")
+        }
+         
+        closeButtonTapped()
+        return true
+    }
+
     
     @objc func closeButtonTapped() {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    @objc func searchButtonTapped() {
-        // When the search button is tapped, call the callback with the text field's text
-        if let cityName = textField.text {
-            onSearch?(cityName)
-        }
     }
     
     func addToView() {
