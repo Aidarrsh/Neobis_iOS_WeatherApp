@@ -34,15 +34,12 @@ class ViewController: UIViewController {
         }
     }
     
-    init(vm: WeatherViewModelType) {
+    init(vm: WeatherViewModelType, vm2: WeekViewModelType) {
         weatherViewModel = vm
+        weekWeatherViewModel = vm2
         super.init(nibName: nil, bundle: nil)
     }
-    
-    init(vm: WeekViewModelType) {
-        weekWeatherViewModel = vm
-        super.init(nibName: nil, bundle: nil)
-    }
+
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -55,9 +52,9 @@ class ViewController: UIViewController {
             self?.weatherModel = weather
         }
         
-//        weekWeatherViewModel.updateWeek = { [weak self] weekWeather in
-//            self?.weekWeatherModel = weekWeather
-//        }
+        weekWeatherViewModel.updateWeek = { [weak self] weekWeather in
+            self?.weekWeatherModel = weekWeather
+        }
         
         addMainView()
         mainView.searchButton.addTarget(self, action: #selector(searchTapped), for: .touchUpInside)
@@ -73,7 +70,11 @@ class ViewController: UIViewController {
     
     @objc func searchTapped() {
         weatherViewModel.didTapSearch?()
-        print("button works")
+        let searchController = SearchController()
+        let navController = UINavigationController(rootViewController: searchController)
+        // present navController modally
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated: true, completion: nil)
     }
     
     func updateUI() {
@@ -89,6 +90,36 @@ class ViewController: UIViewController {
     }
     
     func updateWeekUI() {
-        
+        guard let weekModel = weekWeatherModel else { return }
+
+        let day1List = Array(weekModel.list.prefix(8))
+        let day1MaxTemp = day1List.reduce(Double.leastNormalMagnitude) { max($0, $1.main.tempMax) }
+        mainView.view1.tempLabel.text = "\(Int(round(day1MaxTemp)))°C"
+
+        if weekModel.list.count >= 16 {
+            let day2List = Array(weekModel.list[8..<16])
+            let day2MaxTemp = day2List.reduce(Double.leastNormalMagnitude) { max($0, $1.main.tempMax) }
+            mainView.view2.tempLabel.text = "\(Int(round(day2MaxTemp)))°C"
+        }
+
+        if weekModel.list.count >= 24 {
+            let day3List = Array(weekModel.list[16..<24])
+            let day3MaxTemp = day3List.reduce(Double.leastNormalMagnitude) { max($0, $1.main.tempMax) }
+            mainView.view3.tempLabel.text = "\(Int(round(day3MaxTemp)))°C"
+        }
+
+        if weekModel.list.count >= 32 {
+            let day4List = Array(weekModel.list[24..<32])
+            let day4MaxTemp = day4List.reduce(Double.leastNormalMagnitude) { max($0, $1.main.tempMax) }
+            mainView.view4.tempLabel.text = "\(Int(round(day4MaxTemp)))°C"
+        }
+
+        if weekModel.list.count >= 40 {
+            let day5List = Array(weekModel.list[32..<40])
+            let day5MaxTemp = day5List.reduce(Double.leastNormalMagnitude) { max($0, $1.main.tempMax) }
+            mainView.view5.tempLabel.text = "\(Int(round(day5MaxTemp)))°C"
+        }
     }
+
+
 }

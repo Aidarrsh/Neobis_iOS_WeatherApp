@@ -282,6 +282,14 @@ class MainView : UIView {
         return cLabel
     }()
 
+    let developerLabel : UILabel = {
+        let cLabel = UILabel()
+        cLabel.text = "Developed by @irwingb"
+        cLabel.textColor = .black
+        cLabel.font = UIFont(name: "Montserrat-Light", size: 14)
+        
+        return cLabel
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -327,6 +335,7 @@ class MainView : UIView {
         addSubview(day3Label)
         addSubview(day4Label)
         addSubview(day5Label)
+        addSubview(developerLabel)
     }
     
     func setupConstraints(){
@@ -445,6 +454,11 @@ class MainView : UIView {
         day5Label.snp.makeConstraints{ make in
             make.bottom.equalTo(view5.snp.top).offset(-5)
             make.centerX.equalTo(view5.snp.centerX)
+        }
+        
+        developerLabel.snp.makeConstraints{ make in
+            make.trailing.equalToSuperview().inset(20)
+            make.bottom.equalToSuperview().inset(30)
         }
     }
 }

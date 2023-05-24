@@ -15,9 +15,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = ViewController(vm: WeatherViewModel())
+        let weatherViewModel = WeatherViewModel()
+        let weekViewModel = WeekViewModel() // Assume you have a WeekViewModel class implementing WeekViewModelType
+        window?.rootViewController = ViewController(vm: weatherViewModel, vm2: weekViewModel)
+//        window?.rootViewController = SearchController()
         window?.makeKeyAndVisible()
     }
+
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

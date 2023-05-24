@@ -1,12 +1,3 @@
-//
-//  weekModel.swift
-//  Neobis_iOS_WeatherApp
-//
-//  Created by Айдар Шарипов on 24/5/23.
-//
-
-import Foundation
-
 // MARK: - Welcome
 struct weekWelcome: Codable {
     let cod: String
@@ -29,16 +20,16 @@ struct weekCoord: Codable {
     let lat, lon: Double
 }
 
-// MARK: - List
+/// MARK: - List
 struct weekList: Codable {
     let dt: Int
     let main: weekMainClass
-    let weather: [Weather]
-    let clouds: Clouds
-    let wind: Wind
+    let weather: [weekWeather]
+    let clouds: weekClouds
+    let wind: weekWind
     let visibility: Int
     let pop: Double
-    let sys: Sys
+    let sys: weekSys?
     let dtTxt: String
     let rain: Rain?
 
@@ -48,6 +39,7 @@ struct weekList: Codable {
         case rain
     }
 }
+
 
 // MARK: - Clouds
 struct weekClouds: Codable {
@@ -74,13 +66,7 @@ struct weekMainClass: Codable {
 }
 
 // MARK: - Rain
-struct Rain: Codable {
-    let the3H: Double
-
-    enum CodingKeys: String, CodingKey {
-        case the3H = "3h"
-    }
-}
+typealias Rain = [String: Double]
 
 // MARK: - Sys
 struct weekSys: Codable {

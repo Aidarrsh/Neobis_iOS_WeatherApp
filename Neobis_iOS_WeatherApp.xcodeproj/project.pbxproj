@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1C020AFA2A1D3F7700AC174A /* WeatherDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C020AF92A1D3F7700AC174A /* WeatherDayView.swift */; };
+		1C020AFC2A1D482800AC174A /* WeekViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C020AFB2A1D482800AC174A /* WeekViewModel.swift */; };
+		1C020AFE2A1DF41500AC174A /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C020AFD2A1DF41500AC174A /* SearchController.swift */; };
 		1C7DDF9F2A1CFBB5000A6EA8 /* Montserrat-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C7DDF8D2A1CFBB4000A6EA8 /* Montserrat-MediumItalic.ttf */; };
 		1C7DDFA02A1CFBB5000A6EA8 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C7DDF8E2A1CFBB4000A6EA8 /* Montserrat-Black.ttf */; };
 		1C7DDFA12A1CFBB5000A6EA8 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C7DDF8F2A1CFBB4000A6EA8 /* Montserrat-Light.ttf */; };
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		1C020AF92A1D3F7700AC174A /* WeatherDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDayView.swift; sourceTree = "<group>"; };
+		1C020AFB2A1D482800AC174A /* WeekViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewModel.swift; sourceTree = "<group>"; };
+		1C020AFD2A1DF41500AC174A /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		1C7DDF8D2A1CFBB4000A6EA8 /* Montserrat-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-MediumItalic.ttf"; sourceTree = "<group>"; };
 		1C7DDF8E2A1CFBB4000A6EA8 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
 		1C7DDF8F2A1CFBB4000A6EA8 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Light.ttf"; path = "../../../../../Downloads/Montserrat/static/Montserrat-Light.ttf"; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 				1CFAB1F92A1109F500302D88 /* ViewController.swift */,
 				1CFAB2162A1119C800302D88 /* MainView.swift */,
 				1C020AF92A1D3F7700AC174A /* WeatherDayView.swift */,
+				1C020AFD2A1DF41500AC174A /* SearchController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				1CFAB2112A11183000302D88 /* ViewModel.swift */,
+				1C020AFB2A1D482800AC174A /* WeekViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -280,6 +286,8 @@
 				1CFAB20E2A11174900302D88 /* WeatherModel.swift in Sources */,
 				1CFAB2122A11183000302D88 /* ViewModel.swift in Sources */,
 				1CFAB1F82A1109F500302D88 /* SceneDelegate.swift in Sources */,
+				1C020AFE2A1DF41500AC174A /* SearchController.swift in Sources */,
+				1C020AFC2A1D482800AC174A /* WeekViewModel.swift in Sources */,
 				1C7DDFB42A1D398E000A6EA8 /* WeekModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

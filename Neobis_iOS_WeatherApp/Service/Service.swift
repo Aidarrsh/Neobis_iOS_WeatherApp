@@ -46,7 +46,7 @@ class WeatherService {
                 let weather = try JSONDecoder().decode(weekWelcome  .self, from: data)
                 completion(weather)
             } catch {
-                print("falied to convert \(error.localizedDescription)")
+                print("falied to convert week \(error.localizedDescription)")
             }
         }.resume()
     }

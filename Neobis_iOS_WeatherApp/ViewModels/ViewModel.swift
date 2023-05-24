@@ -54,7 +54,9 @@ class WeatherViewModel: WeatherViewModelType {
     
     init() {
         self.weatherService = WeatherService()
+        self.weekWeatherService = WeatherService()
         fetchWeatherData()
+        fetchWeekWeatherData()
     }
     
     func fetchWeatherData() {
@@ -67,18 +69,6 @@ class WeatherViewModel: WeatherViewModelType {
     func fetchWeekWeatherData() {
         weekWeatherService.fetchWeekWeather{ (weekWeatherData) in
             self.weekWeatherData = weekWeatherData
-
-            let list = weekWeatherData.list
-
-            // We'll just take the first 8 elements of the list
-            let firstDayList = Array(list.prefix(8))
-
-            // Now calculate the average temperature for these 8 elements
-            let averageTemp = firstDayList.reduce(0) { $0 + $1.main.temp } / Double(firstDayList.count)
-
-            // You can now use this averageTemp value and pass it to your UILabels
-            print("Average temp for next day: \(averageTemp)")
-
             self.updateWeek?(weekWeatherData)
         }
     }
