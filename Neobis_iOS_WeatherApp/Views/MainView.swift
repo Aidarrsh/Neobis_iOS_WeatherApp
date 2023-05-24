@@ -441,9 +441,10 @@ class MainView : UIView {
         
         stackView.snp.makeConstraints{ make in
             make.bottom.equalTo(weekView.snp.bottom).inset(100)
+            make.height.equalTo(80)
             make.leading.equalTo(weekView.snp.leading).inset(10)
             make.trailing.equalTo(weekView.snp.trailing).inset(10)
-            make.top.equalTo(weekLabel.snp.bottom).offset(40)
+//            make.top.equalTo(weekLabel.snp.bottom).offset(40)
         }
         
         day1Label.snp.makeConstraints{ make in
